@@ -1,26 +1,51 @@
 # ember-smart-format
 
-This README outlines the details of collaborating on this Ember addon.
+ Ember addon to wrap strings with smart tags in html blocks 
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-smart-format`
-* `npm install`
+`ember install ember-smart-format`
 
-## Running
+## Usage
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+`{{smart-format text='The quick fox **jumps** over the lazy dog'}}`
 
-## Running Tests
+Output: The quick fox **jumps** over the lazy dog
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+Simple tags:
 
-## Building
+| Syntax  | Output |
+| ------------- | ------------- |
+| \*\*text\*\*  | &lt;b&gt;text&lt;/b&gt;  |
+| \#text  | &lt;h3&gt;text&lt;/h3&gt;  |
+| [code]my code[/code]  | &lt;pre&gt;&lt;code&gt;my code&lt;/code&gt;&lt;/pre&gt;  |
+| [img myimg]  | &lt;img src="${media}myimg" class="img"&gt;  |
+| [outimg myimg]  | &lt;img src="myimg" class="img"&gt;  |
+| [caption mycaption]  | &lt;figcaption class="figure-caption"&gt;mycaption&lt;/figcaption&gt;  |
+| [link text\|url]  | &lt;a href="url"&gt;text&lt;/a&gt;  |
 
-* `ember build`
+More complex tags:
 
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+Example 1 (you can also use `ol` instead of `ul`):
+```
+[ul]*item1
+*item2
+*item3[/ul]
+```
+
+Output 1:
+* item1
+* item2
+* item3
+
+Example 2:
+```
+[table] |header1| |header2|
+|col1| |col2| [/table]
+```
+
+Output 2:
+
+| header1  | header2 |
+| ------------- | ------------- |
+| col1 | col2  |
