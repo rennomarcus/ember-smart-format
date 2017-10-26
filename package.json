@@ -11,7 +11,7 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/rennomarcus/ember-smart-format/",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
