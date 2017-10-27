@@ -1,4 +1,5 @@
 # ember-smart-format
+[![Build Status](https://travis-ci.org/rennomarcus/ember-smart-format.svg?branch=master)](https://travis-ci.org/rennomarcus/ember-smart-format)
 
  Ember addon to wrap strings with smart tags in html blocks 
 
