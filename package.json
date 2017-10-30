@@ -1,6 +1,6 @@
 {
   "name": "ember-smart-format",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": " Ember addon to wrap strings with smart tags in html blocks.",
   "keywords": [
     "ember-addon"
