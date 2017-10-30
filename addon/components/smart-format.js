@@ -68,7 +68,7 @@ export default Component.extend({
     // replace '#' and wrap the content of the line into a header tag - <h3>
     // group1 - match initial # or \n# which means a line starting with #
     // group2 - any character besides line terminator (\n)
-    formattedText = formattedText.replace(/^#(.+)/g,"<h3>$1</h3>");
+    formattedText = formattedText.replace(/(^|\n)#(.+)/g,"<h3>$2</h3>");
 
     // replace \n to break lines tags - <br>
     formattedText = formattedText.replace(/(?:\r\n|\r|\n)/g, "<br>");
