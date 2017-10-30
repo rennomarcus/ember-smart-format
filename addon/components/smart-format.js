@@ -52,7 +52,7 @@ export default Component.extend({
     rawText = limitLength(rawText, {limit: this.get('limit')});
 
     // remove unecessary spaces
-    let textSpaced = rawText.replace(/\s\s+/g, ' ');
+    let textSpaced = rawText.replace(/[ ]+/g, ' ');
     // remove potential malicious code
     let safeString = Ember.Handlebars.Utils.escapeExpression(textSpaced);
     // make table
