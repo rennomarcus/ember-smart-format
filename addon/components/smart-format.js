@@ -77,9 +77,9 @@ export default Component.extend({
     formattedText = formattedText.replace(/\*\*(.+?)\*\*/g,"<b>$1</b>");
 
     // add list tags
-    formattedText = formattedText.replace(/\[ul\](.+?)\[\/ul\]/g,"<ul>$1</ul>");
-    formattedText = formattedText.replace(/\[ol\](.+?)\[\/ol\]/g,"<ol>$1</ol>");
-    formattedText = formattedText.replace(/\s?\*(.+?)(<br>|<\/ul>|<\/ol>)/g,"<li>$1</li>");
+    formattedText = formattedText.replace(/\[(ul|ol)\]/g,"<$1>");
+    formattedText = formattedText.replace(/\[\/(ul|ol)\]/g,"</$1>");
+    formattedText = formattedText.replace(/\s?\*(.+?)<br>/g,"<li>$1</li>");
 
     // add img tags
     // group1 - match label|link inside brackets
