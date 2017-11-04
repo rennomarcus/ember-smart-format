@@ -19,7 +19,7 @@ Simple tags:
 | ------------- | ------------- |
 | \*\*text\*\*  | &lt;b&gt;text&lt;/b&gt;  |
 | \#text  | &lt;h3&gt;text&lt;/h3&gt;  |
-| [code]my code[/code]  | &lt;pre&gt;&lt;code&gt;my code&lt;/code&gt;&lt;/pre&gt;  |
+| [code language]my code[/code]  | &lt;pre&gt;&lt;code class="language"&gt;my code&lt;/code&gt;&lt;/pre&gt;  |
 | [img myimg]  | &lt;img src="${media}myimg" class="img"&gt;  |
 | [outimg myimg]  | &lt;img src="myimg" class="img"&gt;  |
 | [caption mycaption]  | &lt;figcaption class="figure-caption"&gt;mycaption&lt;/figcaption&gt;  |
@@ -50,3 +50,13 @@ Output 2:
 | header1  | header2 |
 | ------------- | ------------- |
 | col1 | col2  |
+
+## Issues/Suggestions
+If you have any question or suggestion, please open an issue.
+
+## Development
+* `git clone https://github.com/rennomarcus/ember-smart-format.git`
+* `ember s`
+
+## Tests
+* `ember test` or `ember s` and go to /tests
