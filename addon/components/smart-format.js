@@ -96,8 +96,9 @@ export default Component.extend({
     // add code tag and style to use highlight.js
     formattedText = formattedText.replace(/\[code (.+?)\]/g, '<pre><code class="$1">');
     formattedText = formattedText.replace(/\[\/code\]/g, '</code></pre>');
+    // add code tag for inline code
+    formattedText = formattedText.replace(/&#x60;(.+?)&#x60;/g, '<code>$1</code>');
 
-    // formattedText = formattedText.replace(/`(.+?)`/g ,`<code>$1</code>`);
     if (formattedText.substr(0,4) === "<br>") {
       formattedText = formattedText.substr(4, formattedText.length);
     }
