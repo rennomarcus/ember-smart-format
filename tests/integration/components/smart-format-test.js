@@ -56,3 +56,17 @@ test('unordered tags', function(assert) {
   this.render(hbs`{{smart-format text=ulText}}`);
   assert.equal(this.$('div').html(), ulHtml);
 });
+
+test('code with highlightjs', function(assert) {
+  this.set('codeText', '[code python][/code]');
+  let codeHtml = '<pre><code class="python hljs"></code></pre>';
+  this.render(hbs`{{smart-format text=codeText}}`);
+  assert.equal(this.$('div').html(), codeHtml);
+});
+
+test('inline code tags', function(assert) {
+  this.set('codeText', '`print("Hello World")`');
+  let codeHtml = '<code>print("Hello World")</code>';
+  this.render(hbs`{{smart-format text=codeText}}`);
+  assert.equal(this.$('div').html(), codeHtml);
+});
