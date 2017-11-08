@@ -1,6 +1,6 @@
 {
   "name": "ember-smart-format",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": " Ember addon to wrap strings with smart tags in html blocks.",
   "keywords": [
     "ember-addon"
@@ -23,7 +23,6 @@
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
-    "ember-ajax": "^3.0.0",
     "ember-cli": "~2.16.2",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-eslint": "^4.0.0",
