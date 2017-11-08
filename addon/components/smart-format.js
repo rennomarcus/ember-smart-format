@@ -22,7 +22,7 @@ export default Component.extend({
     }
   },
 
-  makeTable(match,p1) {
+  makeTable(match, p1) {
     let lines = p1.split('\n');
     let total = lines.length;
     let tableStr = '<table class="table"><thead>';
@@ -63,39 +63,39 @@ export default Component.extend({
     // add img caption
     // group1 - match label|link inside brackets
     // group2 - match link inside brackets
-    formattedText = formattedText.replace(/\[caption (.+?)\](\r\n|\r|\n)/g ,'<figcaption class="figure-caption">$1</figcaption>');
+    formattedText = formattedText.replace(/\[caption (.+?)\](\r\n|\r|\n)/g,'<figcaption class="figure-caption">$1</figcaption>');
 
     // replace '#' and wrap the content of the line into a header tag - <h3>
     // group1 - match initial # or \n# which means a line starting with #
     // group2 - any character besides line terminator (\n)
-    formattedText = formattedText.replace(/(^|\n)#(.+)/g,"<h3>$2</h3>");
+    formattedText = formattedText.replace(/(^|\n)#(.+)/g, '<h3>$2</h3>');
 
     // replace \n to break lines tags - <br>
-    formattedText = formattedText.replace(/(?:\r\n|\r|\n)/g, "<br>");
+    formattedText = formattedText.replace(/(?:\r\n|\r|\n)/g, '<br>');
 
     // add bold text around **
-    formattedText = formattedText.replace(/\*\*(.+?)\*\*/g,"<b>$1</b>");
+    formattedText = formattedText.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
 
     // add list tags
-    formattedText = formattedText.replace(/\[(ul|ol)\]/g,"<$1>");
-    formattedText = formattedText.replace(/\[\/(ul|ol)\]/g,"</$1>");
-    formattedText = formattedText.replace(/\s?\*(.+?)<br>/g,"<li>$1</li>");
+    formattedText = formattedText.replace(/\[(ul|ol)\]/g, '<$1>');
+    formattedText = formattedText.replace(/\[\/(ul|ol)\]/g, '</$1>');
+    formattedText = formattedText.replace(/\s?\*(.+?)<br>/g, '<li>$1</li>');
 
     // add img tags
     // group1 - match label|link inside brackets
     // group2 - match link inside brackets
     let media = this.get('media') || "";
-    formattedText = formattedText.replace(/\[img (.+?)\]/g ,`<img src="${media}$1" class="img">`);
-    formattedText = formattedText.replace(/\[outimg (.+?)\]/g ,`<img src="$1" class="img">`);
+    formattedText = formattedText.replace(/\[img (.+?)\]/g, `<img src="${media}$1" class="img">`);
+    formattedText = formattedText.replace(/\[outimg (.+?)\]/g, '<img src="$1" class="img">');
 
     // add link tags
     // group1 - match label|link inside brackets
     // group2 - match link inside brackets
-    formattedText = formattedText.replace(/\[link (.+?)\|(.+?)\]/g ,`<a href="$2">$1</a>`);
+    formattedText = formattedText.replace(/\[link (.+?)\|(.+?)\]/g, '<a href="$2">$1</a>');
 
     // add code tag and style to use highlight.js
-    formattedText = formattedText.replace(/\[code (.+?)\]/g ,`<pre><code class="$1">`);
-    formattedText = formattedText.replace(/\[\/code\]/g ,`</code></pre>`);
+    formattedText = formattedText.replace(/\[code (.+?)\]/g, '<pre><code class="$1">');
+    formattedText = formattedText.replace(/\[\/code\]/g, '</code></pre>');
 
     // formattedText = formattedText.replace(/`(.+?)`/g ,`<code>$1</code>`);
     if (formattedText.substr(0,4) === "<br>") {
