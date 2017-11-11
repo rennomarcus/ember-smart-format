@@ -15,6 +15,13 @@ test('trim spaces', function(assert) {
   assert.equal(this.$('div').html(), formattedText);
 });
 
+test('figure caption', function(assert){
+  this.set('figCaption', '[caption This is my pic]');
+  let captionText = '<figcaption class="figure-caption">This is my pic</figcaption>';
+  this.render(hbs`{{smart-format text=figCaption}}`);
+  assert.equal(this.$('div').html(), captionText);
+});
+
 test('bold tag', function(assert) {
   this.set('boldText', 'This is **bold** text');
   let boldHtml = 'This is <b>bold</b> text';
@@ -23,8 +30,8 @@ test('bold tag', function(assert) {
 });
 
 test('breakline', function(assert) {
-  this.set('brText', 'This is my text\n');
-  let brHtml = 'This is my text<br>';
+  this.set('brText', 'This is my text\nThis is another line');
+  let brHtml = 'This is my text<br>This is another line';
   this.render(hbs`{{smart-format text=brText}}`);
   assert.equal(this.$('div').html(), brHtml);
 });
@@ -50,11 +57,36 @@ test('table structure', function(assert) {
   assert.equal(this.$('div').html(), tableHtml);
 });
 
-test('unordered tags', function(assert) {
+test('list tags', function(assert) {
   this.set('ulText', '[ul]*Item1\n*Item2\n[/ul]');
   let ulHtml = '<ul><li>Item1</li><li>Item2</li></ul>';
   this.render(hbs`{{smart-format text=ulText}}`);
   assert.equal(this.$('div').html(), ulHtml);
+
+  this.set('olText', '[ol]*Item1\n*Item2\n[/ol]');
+  let olHtml = '<ol><li>Item1</li><li>Item2</li></ol>';
+  this.render(hbs`{{smart-format text=olText}}`);
+  assert.equal(this.$('div').html(), olHtml);
+});
+
+test('img tags', function(assert) {
+  this.set('imgTextInternal', '[img xfce.png]');
+  // /media/ is imported from the config file
+  let internalImg = '<img src="/media/xfce.png" class="img">';
+  this.render(hbs`{{smart-format text=imgTextInternal}}`);
+  assert.equal(this.$('div').html(), internalImg);
+
+  this.set('imgTextExternal', '[outimg xfce.png]');
+  let externalImg = '<img src="xfce.png" class="img">';
+  this.render(hbs`{{smart-format text=imgTextExternal}}`);
+  assert.equal(this.$('div').html(), externalImg);
+});
+
+test('anchor tags', function(assert) {
+  this.set('anchorText', '[link text|link]');
+  let anchorHtml = '<a href="link">text</a>';
+  this.render(hbs`{{smart-format text=anchorText}}`);
+  assert.equal(this.$('div').html(), anchorHtml);
 });
 
 test('code with highlightjs', function(assert) {
