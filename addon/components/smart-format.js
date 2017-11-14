@@ -63,7 +63,7 @@ export default Component.extend({
     // add img caption
     // group1 - match label|link inside brackets
     // group2 - match link inside brackets
-    formattedText = formattedText.replace(/\[caption (.+?)\](\r\n|\r|\n)/g,'<figcaption class="figure-caption">$1</figcaption>');
+    formattedText = formattedText.replace(/\[caption (.+?)\]/g,'<figcaption class="figure-caption">$1</figcaption>');
 
     // replace '#' and wrap the content of the line into a header tag - <h3>
     // group1 - match initial # or \n# which means a line starting with #
