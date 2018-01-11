@@ -1,8 +1,15 @@
 # ember-smart-format
 [![Build Status](https://travis-ci.org/rennomarcus/ember-smart-format.svg?branch=master)](https://travis-ci.org/rennomarcus/ember-smart-format)
 
-Ember addon to convert parts of your text that are using smart tags to valid
-html blocks.
+## Important
+Please, if you are using this addon to markdown your text, consider using something else like 
+[ember-cli-markdownit](https://github.com/rennomarcus/ember-cli-markdown-it), [ember-showdown](https://github.com/gcollazo/ember-cli-showdown).
+They are more robust, comply with a popular standard, have greater support, and most important:
+they are less likely to have security/performance issues.
+This addon relies heavily on regex and it implements its own tags. Stick with some popular standard.:)
+
+## What is this addon?
+Ember addon to convert parts of your text that are using smart tags to valid html blocks.
 
 ## Installation
 
